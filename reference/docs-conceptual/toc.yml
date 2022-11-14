@@ -245,7 +245,7 @@ items:
         href: whats-new/overview.yml
       - name: What's new in PowerShell 7.x
         items:
-          - name: What's new in PowerShell 7.3 (preview)
+          - name: What's new in PowerShell 7.3
             href: whats-new/what-s-new-in-powershell-73.md
           - name: What's new in PowerShell 7.2
             href: whats-new/what-s-new-in-powershell-72.md
@@ -498,11 +498,15 @@ items:
         href: community/contributing/file-an-issue.md
       - name: Submitting a pull request
         href: community/contributing/pull-requests.md
+      - name: Contributing quality improvements
+        href: community/contributing/quality-improvements.md
       - name: Hacktoberfest and other hack-a-thon events
         href: community/contributing/hackathons.md
       - name: How we manage issues
         href: community/contributing/managing-issues.md
       - name: How we manage pull requests
         href: community/contributing/managing-pull-requests.md
+      - name: Labelling in GitHub
+        href: community/contributing/labelling-in-github.md
   - name: PowerShell support lifecycle
     href: install/powershell-support-lifecycle.md

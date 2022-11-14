@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 04/02/2021
+ms.date: 11/11/2022
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Set-Alias
@@ -386,6 +386,10 @@ When you use the **PassThru** parameter, `Set-Alias` generates a
 does not generate any output.
 
 ## NOTES
+
+Windows PowerShell includes the following aliases for `Set-Alias`:
+
+- `sal`
 
 PowerShell includes built-in aliases that are available in each PowerShell session. The `Get-Alias`
 cmdlet displays the aliases available in a PowerShell session.
