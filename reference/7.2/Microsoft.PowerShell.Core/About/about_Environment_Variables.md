@@ -1,7 +1,7 @@
 ---
 description: Describes how to access and manage environment variables in PowerShell.
 Locale: en-US
-ms.date: 10/31/2022
+ms.date: 11/30/2022
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.2&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about Environment Variables
@@ -292,7 +292,7 @@ System Control Panel:
 1. Select **Environment Variables...**.
 1. Make your changes.
 
-## PowerShell's environment variables
+## PowerShell environment variables
 
 PowerShell features can use environment variables to store user preferences.
 These variables work like preference variables, but they're inherited by child
@@ -300,6 +300,36 @@ sessions of the sessions in which they're created. For more information about
 preference variables, see [about_Preference_Variables][05].
 
 The environment variables that store preferences include:
+
+- **POWERSHELL_TELEMETRY_OPTOUT**
+
+  To opt-out of telemetry, set the environment variable to `true`, `yes`, or
+  `1`.
+
+  For more information, see [about_Telemetry][08].
+
+- **POWERSHELL_DISTRIBUTION_CHANNEL**
+
+  Beginning in PowerShell 7.2, this environment variable is set by the
+  installer packages to record the method and source of installation for
+  PowerShell.
+
+  This information is included in the telemetry data sent to Microsoft. Users
+  shouldn't change this value.
+
+- **POWERSHELL_UPDATECHECK**
+
+  The update notification behavior can be changed using the
+  `POWERSHELL_UPDATECHECK` environment variable. The following values are
+  supported:
+
+  - `Off` turns off the update notification feature
+  - `Default` is the same as not defining `POWERSHELL_UPDATECHECK`:
+    - GA releases notify of updates to GA releases
+    - Preview/RC releases notify of updates to GA and preview releases
+  - `LTS` only notifies of updates to long-term-servicing (LTS) GA releases
+
+  For more information, see [about_Update_Notifications][09].
 
 - **PSExecutionPolicyPreference**
 
@@ -314,6 +344,38 @@ The environment variables that store preferences include:
     a value of `Process`.
 
     For more information, see [about_Execution_Policies][04].
+
+- **PSModulePath**
+
+  The `$env:PSModulePath` environment variable contains a list of folder
+  locations that are searched to find modules and resources. On Windows, the
+  list of folder locations is separated by the semi-colon (`;`) character. On
+  non-Windows platforms, the colon (`:`) separates the folder locations in the
+  environment variable.
+
+  By default, the effective locations assigned to `$env:PSModulePath` are:
+
+  - System-wide locations: These folders contain modules that ship with
+    PowerShell. The modules are store in the `$PSHOME\Modules` location. Also,
+    This is the location where the Windows management modules are installed.
+
+  - User-installed modules: These are modules installed by the user.
+    `Install-Module` has a **Scope** parameter that allows you to specify
+    whether the module is installed for the current user or for all users. For
+    more information, see [Install-Module][13].
+
+    - On Windows, the location of the user-specific **CurrentUser** scope is
+      the `$HOME\Documents\PowerShell\Modules` folder. The location of the
+      **AllUsers** scope is `$env:ProgramFiles\PowerShell\Modules`.
+    - On non-Windows systems, the location of the user-specific **CurrentUser**
+      scope is the `$HOME/.local/share/powershell/Modules` folder. The location
+      of the **AllUsers** scope is `/usr/local/share/powershell/Modules`.
+
+  In addition, setup programs that install modules in other directories, such
+  as the Program Files directory, can append their locations to the value of
+  `$env:PSModulePath`.
+
+  For more information, see [about_PSModulePath][07].
 
 - **PSModuleAnalysisCachePath**
 
@@ -370,65 +432,6 @@ The environment variables that store preferences include:
 
   Setting this environment variable takes effect immediately in the current
   process.
-
-- **PSModulePath**
-
-  The `$env:PSModulePath` environment variable contains a list of folder
-  locations that are searched to find modules and resources. On Windows, the
-  list of folder locations is separated by the semi-colon (`;`) character. On
-  non-Windows platforms, the colon (`:`) separates the folder locations in the
-  environment variable.
-
-  By default, the effective locations assigned to `$env:PSModulePath` are:
-
-  - System-wide locations: These folders contain modules that ship with
-    PowerShell. The modules are store in the `$PSHOME\Modules` location. Also,
-    This is the location where the Windows management modules are installed.
-
-  - User-installed modules: These are modules installed by the user.
-    `Install-Module` has a **Scope** parameter that allows you to specify
-    whether the module is installed for the current user or for all users. For
-    more information, see [Install-Module][13].
-
-    - On Windows, the location of the user-specific **CurrentUser** scope is
-      the `$HOME\Documents\PowerShell\Modules` folder. The location of the
-      **AllUsers** scope is `$env:ProgramFiles\PowerShell\Modules`.
-    - On non-Windows systems, the location of the user-specific **CurrentUser**
-      scope is the `$HOME/.local/share/powershell/Modules` folder. The location
-      of the **AllUsers** scope is `/usr/local/share/powershell/Modules`.
-
-  In addition, setup programs that install modules in other directories, such
-  as the Program Files directory, can append their locations to the value of
-  `$env:PSModulePath`.
-
-  For more information, see [about_PSModulePath][07].
-
-- **POWERSHELL_UPDATECHECK**
-
-  The update notification behavior can be changed using the
-  `POWERSHELL_UPDATECHECK` environment variable. The following values are
-  supported:
-
-  - `Off` turns off the update notification feature
-  - `Default` is the same as not defining `POWERSHELL_UPDATECHECK`:
-    - GA releases notify of updates to GA releases
-    - Preview/RC releases notify of updates to GA and preview releases
-  - `LTS` only notifies of updates to long-term-servicing (LTS) GA releases
-
-  For more information, see [about_Update_Notifications][09].
-
-- **POWERSHELL_TELEMETRY_OPTOUT**
-
-  To opt-out of telemetry, set the environment variable to `true`, `yes`, or
-  `1`.
-
-  For more information, see [about_Telemetry][08].
-
-- **POWERSHELL_DISTRIBUTION_CHANNEL**
-
-  Beginning in PowerShell 7.2, this environment variable is set by the
-  installer packages to record the method and source of installation for
-  PowerShell.
 
 ## Other environment variables used by PowerShell
 

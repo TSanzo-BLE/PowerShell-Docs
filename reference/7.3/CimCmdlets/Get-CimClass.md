@@ -2,7 +2,7 @@
 external help file: Microsoft.Management.Infrastructure.CimCmdlets.dll-Help.xml
 Locale: en-US
 Module Name: CimCmdlets
-ms.date: 06/09/2022
+ms.date: 06/28/2023
 online version: https://learn.microsoft.com/powershell/module/cimcmdlets/get-cimclass?view=powershell-7.3&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Get-CimClass
@@ -299,7 +299,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### None
 
-This cmdlet accepts no input objects.
+You can't pipe objects to this cmdlet.
 
 ## OUTPUTS
 
@@ -308,6 +308,13 @@ This cmdlet accepts no input objects.
 This cmdlet returns a CIM class object.
 
 ## NOTES
+
+PowerShell includes the following aliases for `Get-CimClass`:
+
+- Windows:
+  - `gcls`
+
+This cmdlet is only available on Windows platforms.
 
 ## RELATED LINKS
 

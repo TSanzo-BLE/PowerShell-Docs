@@ -1,7 +1,7 @@
 ---
 description: Mastering the help system is the key to being successful with PowerShell.
 ms.custom: Contributor-mikefrobbins
-ms.date: 10/05/2021
+ms.date: 12/08/2022
 ms.reviewer: mirobb
 title: The Help System
 ---
@@ -532,11 +532,11 @@ the `Get-Command` cmdlet? You could use `Get-Help` to display the help topic for
 The **Name**, **Noun**, and **Verb** parameters accept wildcards. The following example shows
 wildcards being used with the **Name** parameter:
 
-```Output
+```powershell
 Get-Command -Name *service*
 ```
 
-```powershell
+```Output
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
 Function        Get-NetFirewallServiceFilter                       2.0.0.0    NetSecurity
@@ -663,5 +663,5 @@ methods.
 [Save-Help]: /powershell/module/microsoft.powershell.core/save-help
 [about_Updatable_Help]: /powershell/module/microsoft.powershell.core/about/about_updatable_help
 [about_Command_Syntax]: /powershell/module/microsoft.powershell.core/about/about_command_syntax
-[PowerShell-Docs]: https://github.com/powershell/powershell
+[PowerShell-Docs]: https://github.com/MicrosoftDocs/PowerShell-Docs
 [Appendix A]: appendix-a.md

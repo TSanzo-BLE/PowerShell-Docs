@@ -1,7 +1,7 @@
 ---
 author: sdwheeler
 ms.author: sewhee
-ms.date: 07/25/2022
+ms.date: 01/09/2023
 ms.prod: powershell
 ms.topic: include
 ---
@@ -18,19 +18,16 @@ macOS. These versions remain supported until either the version of
 - When both the version of the OS and the version of PowerShell have a ![Supported][1] icon, that
   combination is supported
 
-[1]: ../media/shared/check-mark-button_2705.svg
-[2]: ../media/shared/construction-sign_1f6a7.svg
-[3]: ../media/shared/cross-mark_274c.svg
-[4]: ../media/shared/large-yellow-circle_1f7e1.svg
+[1]: ../media/shared/check-mark-button-2705.svg
+[2]: ../media/shared/construction-sign-1f6a7.svg
+[3]: ../media/shared/cross-mark-274c.svg
+[4]: ../media/shared/large-yellow-circle-1f7e1.svg
 
-|                 macOS                  |      7.0 (LTS)       |         7.1          |  7.2 (LTS-current)   |    7.3 (preview)     |
-| -------------------------------------- | :------------------: | :------------------: | :------------------: | :------------------: |
-| ![Supported][1] Big Sur 11.5           |   ![Supported][1]    | ![Out of Support][4] |   ![Supported][1]    |   ![Supported][1]    |
-| ![Out of Support][4] Catalina 10.15    | ![Out of Support][4] | ![Out of Support][4] | ![Out of Support][4] | ![Out of Support][4] |
-| ![Out of Support][4] Mojave 10.14      | ![Out of Support][4] | ![Out of Support][4] | ![Out of Support][4] | ![Out of Support][4] |
-| ![Out of Support][4] High Sierra 10.13 | ![Out of Support][4] | ![Out of Support][4] | ![Not Supported][3]  | ![Not Supported][3]  |
+|            macOS             | 7.2 (LTS-current) |       7.3       |  7.4 (preview)  |
+| ---------------------------- | :---------------: | :-------------: | :-------------: |
+| ![Supported][1] Big Sur 11.5 |  ![Supported][1]  | ![Supported][1] | ![Supported][1] |
 
-macOS Monterey 12.0 has not been tested.
+macOS 12 (Monterey) and macOS 13 (Ventura) have not been tested.
 
 Support of macOS is defined by Apple. For more information, see:
 
@@ -39,9 +36,8 @@ Support of macOS is defined by Apple. For more information, see:
 
 PowerShell is supported on macOS for the following processor architectures:
 
-|          macOS           | 7.0 (LTS) | 7.2 (LTS-current) | 7.3 (preview) |
-| ------------------------ | :-------: | :---------------: | :-----------: |
-| macOS Big Sur 11.5       |    x64    |    x64, Arm64     |  x64, Arm64   |
-| macOS High Sierra 10.13+ |    x64    |        x64        |      x64      |
+|       macOS        | 7.2 (LTS-current) |    7.3     | 7.4 (preview) |
+| ------------------ | :---------------: | :--------: | :-----------: |
+| macOS Big Sur 11.5 |    x64, Arm64     | x64, Arm64 |  x64, Arm64   |
 
 [lifecycle]: /powershell/scripting/install/powershell-support-lifecycle

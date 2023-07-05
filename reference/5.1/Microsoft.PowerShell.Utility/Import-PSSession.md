@@ -2,11 +2,12 @@
 external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 08/18/2022
+ms.date: 12/12/2022
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/import-pssession?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Import-PSSession
 ---
+
 # Import-PSSession
 
 ## SYNOPSIS
@@ -593,17 +594,21 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### None
 
-You cannot pipe objects to this cmdlet.
+You can't pipe objects to this cmdlet.
 
 ## OUTPUTS
 
 ### System.Management.Automation.PSModuleInfo
 
-`Import-PSSession` returns the same module object that `New-Module` and `Get-Module` cmdlets return.
+This cmdlet returns the same module object that `New-Module` and `Get-Module` cmdlets return.
 However, the imported module is temporary and exists only in the current session. To create a
 permanent module on disk, use the `Export-PSSession` cmdlet.
 
 ## NOTES
+
+Windows PowerShell includes the following aliases for `Import-PSSession`:
+
+- `ipsn`
 
 - `Import-PSSession` relies on the  PowerShell remoting infrastructure. To use this cmdlet,
   the computer must be configured for WS-Management remoting. For more information, see

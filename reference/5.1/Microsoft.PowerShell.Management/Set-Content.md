@@ -2,11 +2,12 @@
 external help file: Microsoft.PowerShell.Commands.Management.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Management
-ms.date: 11/11/2022
+ms.date: 03/10/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.management/set-content?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Set-Content
 ---
+
 # Set-Content
 
 ## SYNOPSIS
@@ -14,7 +15,7 @@ Writes new content or replaces existing content in a file.
 
 ## SYNTAX
 
-### Path (Default)
+### Path (Default) - FileSystem provider
 
 ```
 Set-Content [-Path] <string[]> [-Value] <Object[]> [-PassThru] [-Filter <string>]
@@ -23,13 +24,29 @@ Set-Content [-Path] <string[]> [-Value] <Object[]> [-PassThru] [-Filter <string>
  [-Stream <string>] [<CommonParameters>]
 ```
 
-### LiteralPath
+### LiteralPath - FileSystem provider
 
 ```
 Set-Content [-Value] <Object[]> -LiteralPath <string[]> [-PassThru] [-Filter <string>]
  [-Include <string[]>] [-Exclude <string[]>] [-Force] [-Credential <pscredential>] [-WhatIf]
  [-Confirm] [-UseTransaction] [-NoNewline] [-Encoding <FileSystemCmdletProviderEncoding>]
  [-Stream <string>] [<CommonParameters>]
+```
+
+### Path (Default) - All providers
+
+```
+Set-Content [-Path] <string[]> [-Value] <Object[]> [-PassThru] [-Filter <string>]
+ [-Include <string[]>] [-Exclude <string[]>] [-Force] [-Credential <pscredential>] [-WhatIf]
+ [-Confirm] [-UseTransaction] [<CommonParameters>]
+```
+
+### LiteralPath - All providers
+
+```
+Set-Content [-Value] <Object[]> -LiteralPath <string[]> [-PassThru] [-Filter <string>]
+ [-Include <string[]>] [-Exclude <string[]>] [-Force] [-Credential <pscredential>] [-WhatIf]
+ [-Confirm] [-UseTransaction] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -166,6 +183,9 @@ Accept wildcard characters: False
 ```
 
 ### -Encoding
+
+This is a dynamic parameter made available by the **FileSystem** provider. For more information, see
+[about_FileSystem_Provider](../Microsoft.PowerShell.Core/About/about_FileSystem_Provider.md).
 
 Specifies the type of encoding for the target file. The default value is `Default`.
 
@@ -307,6 +327,9 @@ Accept wildcard characters: False
 
 ### -NoNewline
 
+This is a dynamic parameter made available by the **FileSystem** provider. For more information, see
+[about_FileSystem_Provider](../Microsoft.PowerShell.Core/About/about_FileSystem_Provider.md).
+
 The string representations of the input objects are concatenated to form the output. No spaces or
 newlines are inserted between the output strings. No newline is added after the last output string.
 
@@ -356,6 +379,10 @@ Accept wildcard characters: True
 ```
 
 ### -Stream
+
+This is a dynamic parameter made available by the **FileSystem** provider. This Parameter is only
+available on Windows. For more information, see
+[about_FileSystem_Provider](../Microsoft.PowerShell.Core/About/about_FileSystem_Provider.md).
 
 Specifies an alternative data stream for content. If the stream does not exist, this cmdlet creates
 it. Wildcard characters are not supported.
@@ -458,14 +485,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Object
 
-You can pipe an object that contains the new value for the item to `Set-Content`.
+You can pipe an object that contains the new value for the item to this cmdlet.
 
 ## OUTPUTS
 
-### None or System.String
+### None
 
-When you use the **PassThru** parameter, `Set-Content` generates a **System.String** object that
-represents the content. Otherwise, this cmdlet does not generate any output.
+By default, this cmdlet returns no output.
+
+### System.String
+
+When you use the **PassThru** parameter, this cmdlet returns a string representing the content.
 
 ## NOTES
 

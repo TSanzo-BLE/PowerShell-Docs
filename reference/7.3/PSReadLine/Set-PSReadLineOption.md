@@ -2,11 +2,12 @@
 external help file: Microsoft.PowerShell.PSReadLine2.dll-Help.xml
 Locale: en-US
 Module Name: PSReadLine
-ms.date: 12/17/2021
+ms.date: 03/24/2023
 online version: https://learn.microsoft.com/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.3&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Set-PSReadLineOption
 ---
+
 # Set-PSReadLineOption
 
 ## SYNOPSIS
@@ -147,8 +148,17 @@ For more information, see
 
 Specifies a **ScriptBlock** that controls which commands get added to **PSReadLine** history.
 
-The **ScriptBlock** receives the command line as input. If the **ScriptBlock** returns `$True`, the
-command line is added to the history.
+The **ScriptBlock** receives the command line as input.
+
+The  **ScripBlock** should return a member of the **AddToHistoryOption** enum, the string name of
+one of those members, or a boolean value. The list below describes the possible values and their
+effects.
+
+- `MemoryAndFile` - Add the command to the history file and the current session.
+- `MemoryOnly` - Add the command to history for the current session only.
+- `SkipAdding` - Don't add the command to the history file for current session.
+- `$false` - Same as if the value was `SkipAdding`.
+- `$true` - Same as if the value was `MemoryAndFile`.
 
 ```yaml
 Type: System.Func`2[System.String,System.Object]
@@ -254,6 +264,8 @@ The valid keys include:
 - **Number**: The number token color.
 - **Member**: The member name token color.
 - **InlinePrediction**: The color for the inline view of the predictive suggestion.
+- **ListPrediction**: The color for the leading `>` character and prediction source name.
+- **ListPredictionSelected**: The color for the selected prediction in list view.
 
 ```yaml
 Type: System.Collections.Hashtable
@@ -438,18 +450,18 @@ Accept wildcard characters: False
 
 Specifies the path to the file where history is saved. Computers running Windows or non-Windows
 platforms store the file in different locations. The filename is stored in a variable
-`$($host.Name)_history.txt`, for example `ConsoleHost_history.txt`.
+`$($Host.Name)_history.txt`, for example `ConsoleHost_history.txt`.
 
 If you don't use this parameter, the default path is as follows:
 
 **Windows**
 
-- `$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\$($host.Name)_history.txt`
+- `$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\$($Host.Name)_history.txt`
 
 **non-Windows**
 
-- `$env:XDG_DATA_HOME/powershell/PSReadLine/$($host.Name)_history.txt`
-- `$env:HOME/.local/share/powershell/PSReadLine/$($host.Name)_history.txt`
+- `$env:XDG_DATA_HOME/powershell/PSReadLine/$($Host.Name)_history.txt`
+- `$HOME/.local/share/powershell/PSReadLine/$($Host.Name)_history.txt`
 
 ```yaml
 Type: System.String
@@ -458,7 +470,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: A file named $($host.Name)_history.txt in $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine on Windows and $env:XDG_DATA_HOME/powershell/PSReadLine or $env:HOME/.local/share/powershell/PSReadLine on non-Windows platforms
+Default value: A file named $($Host.Name)_history.txt in $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine on Windows and $env:XDG_DATA_HOME/powershell/PSReadLine or $HOME/.local/share/powershell/PSReadLine on non-Windows platforms
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -748,13 +760,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### None
 
-You cannot pipe objects to `Set-PSReadLineOption.`
+You can't pipe objects to this cmdlet.
 
 ## OUTPUTS
 
 ### None
 
-This cmdlet does not generate any output.
+This cmdlet returns no output.
 
 ## NOTES
 

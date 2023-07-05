@@ -2,11 +2,12 @@
 external help file: Microsoft.PowerShell.Commands.Management.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Management
-ms.date: 05/16/2022
+ms.date: 12/12/2022
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.management/new-itemproperty?view=powershell-7.3&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: New-ItemProperty
 ---
+
 # New-ItemProperty
 
 ## SYNOPSIS
@@ -284,8 +285,10 @@ Accept wildcard characters: True
 
 ### -PropertyType
 
-Specifies the type of property that this cmdlet adds.
-The acceptable values for this parameter are:
+This is a dynamic parameter made available by the **Registry** provider. The **Registry** provider
+and this parameter are only available on Windows.
+
+Specifies the type of property that this cmdlet adds. The acceptable values for this parameter are:
 
 - `String`: Specifies a null-terminated string. Used for **REG_SZ** values.
 - `ExpandString`: Specifies a null-terminated string that contains unexpanded references to
@@ -299,7 +302,7 @@ The acceptable values for this parameter are:
 - `Unknown`: Indicates an unsupported registry data type, such as **REG_RESOURCE_LIST** values.
 
 ```yaml
-Type: System.String
+Type: Microsoft.Win32.RegistryValueKind
 Parameter Sets: (All)
 Aliases: Type
 
@@ -371,13 +374,13 @@ This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 ### None
 
-You cannot pipe input to this cmdlet.
+You can't pipe objects to this cmdlet.
 
 ## OUTPUTS
 
 ### System.Management.Automation.PSCustomObject
 
-`New-ItemProperty` returns a custom object that contains the new property.
+This cmdlet returns a custom object representing the new property.
 
 ## NOTES
 

@@ -2,11 +2,12 @@
 external help file: Microsoft.PowerShell.Commands.Management.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Management
-ms.date: 10/25/2022
+ms.date: 02/14/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.management/clear-content?view=powershell-7.2&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Clear-Content
 ---
+
 # Clear-Content
 
 ## SYNOPSIS
@@ -14,19 +15,36 @@ Deletes the contents of an item, but does not delete the item.
 
 ## SYNTAX
 
-### Path (Default)
+### Path (Default) - FileSystem provider
 
 ```
-Clear-Content [-Path] <String[]> [-Filter <String>] [-Include <String[]>] [-Exclude <String[]>]
- [-Force] [-Credential <PSCredential>] [-WhatIf] [-Confirm] [-Stream <String>] [<CommonParameters>]
+Clear-Content [-Path] <String[]> [-Filter <String>] [-Include <String[]>]
+ [-Exclude <String[]>] [-Force] [-Credential <PSCredential>] [-WhatIf]
+ [-Confirm] [-Stream <String>] [<CommonParameters>]
 ```
 
-### LiteralPath
+### LiteralPath - FileSystem provider
 
 ```
 Clear-Content -LiteralPath <String[]> [-Filter <String>] [-Include <String[]>]
- [-Exclude <String[]>] [-Force] [-Credential <PSCredential>] [-WhatIf] [-Confirm] [-Stream <String>]
- [<CommonParameters>]
+ [-Exclude <String[]>] [-Force] [-Credential <PSCredential>] [-WhatIf]
+ [-Confirm] [-Stream <String>] [<CommonParameters>]
+```
+
+### Path (Default) - All providers
+
+```
+Clear-Content [-Path] <String[]> [-Filter <String>] [-Include <String[]>]
+ [-Exclude <String[]>] [-Force] [-Credential <PSCredential>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
+```
+
+### LiteralPath - All providers
+
+```
+Clear-Content -LiteralPath <String[]> [-Filter <String>] [-Include <String[]>]
+ [-Exclude <String[]>] [-Force] [-Credential <PSCredential>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -223,23 +241,22 @@ Accept wildcard characters: True
 
 ### -Stream
 
-> [!NOTE]
-> This Parameter is only available on Windows.
+This is a dynamic parameter made available by the **FileSystem** provider. This parameter is only
+available on Windows.
 
 Specifies an alternative data stream for content. If the stream does not exist, this cmdlet creates
 it. Wildcard characters are not supported.
 
-**Stream** is a dynamic parameter that the FileSystem provider adds to `Clear-Content`. This
-parameter works only in file system drives, and will clear the content of alternative data streams
-on both files and directories.
-
 You can use the `Clear-Content` cmdlet to change the content of any alternate data stream, such as
 `Zone.Identifier`. However, we do not recommend this as a way to eliminate security checks that
-block files that are downloaded from the internet. If you verify that a downloaded file is safe, use
-the `Unblock-File` cmdlet.
+block files that are downloaded from the internet. If you verify that a downloaded file is safe,
+use the `Unblock-File` cmdlet.
 
 This parameter was introduced in PowerShell 3.0. As of PowerShell 7.2, `Clear-Content` can clear the
 content of alternative data streams from directories as well as files.
+
+For more information, see
+[about_FileSystem_Provider](../Microsoft.PowerShell.Core/About/about_FileSystem_Provider.md).
 
 ```yaml
 Type: System.String
@@ -296,13 +313,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### None
 
-You cannot pipe objects to `Clear-Content`.
+You can't pipe objects to this cmdlet.
 
 ## OUTPUTS
 
 ### None
 
-This cmdlet does not return any objects.
+This cmdlet returns no output.
 
 ## NOTES
 

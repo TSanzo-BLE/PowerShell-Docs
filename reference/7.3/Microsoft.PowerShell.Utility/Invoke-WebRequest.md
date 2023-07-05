@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 11/04/2022
+ms.date: 03/16/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.3&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Invoke-WebRequest
@@ -307,7 +307,7 @@ foreach ($job in $jobs) {
 ### Example 9: Skipping Header Validation
 
 By default, the `Invoke-WebRequest` cmdlet validates the values of well-known headers that have a
-standardards-defined value format. The following example shows how this validation can raise an
+standards-defined value format. The following example shows how this validation can raise an
 error and how you can use the **SkipHeaderValidation** parameter to avoid validating values for
 endpoints that tolerate invalidly formatted values.
 
@@ -332,15 +332,15 @@ Content           : {
                         "Host": "httpbin.org",
                         "If-Match": "12345",
                         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.19044; en-US) PowerShell/7.2.5",
-                        "X-Amzn-Trace-Id": …
+                        "X-Amzn-Trace-Id": ï¿½
 RawContent        : HTTP/1.1 200 OK
                     Date: Mon, 08 Aug 2022 16:24:24 GMT
                     Connection: keep-alive
                     Server: gunicorn/19.9.0
                     Access-Control-Allow-Origin: *
                     Access-Control-Allow-Credentials: true
-                    Content-Type: application…
-Headers           : {[Date, System.String[]], [Connection, System.String[]], [Server, System.String[]], [Access-Control-Allow-Origin, System.String[]]…}
+                    Content-Type: applicationï¿½
+Headers           : {[Date, System.String[]], [Connection, System.String[]], [Server, System.String[]], [Access-Control-Allow-Origin, System.String[]]ï¿½}
 Images            : {}
 InputFields       : {}
 Links             : {}
@@ -677,10 +677,7 @@ Accept wildcard characters: False
 
 Specifies the headers of the web request. Enter a hash table or dictionary.
 
-To set UserAgent headers, use the **UserAgent** parameter. You can't use this parameter to specify
-**User-Agent** or cookie headers.
-
-Content related headers, such as `Content-Type` is overridden when a **MultipartFormDataContent**
+Content related headers, such as `Content-Type` are overridden when a **MultipartFormDataContent**
 object is supplied for **Body**.
 
 ```yaml
@@ -1005,10 +1002,15 @@ When you specify a session variable, `Invoke-WebRequest` creates a web request s
 assigns it to a variable with the specified name in your PowerShell session. You can use the
 variable in your session as soon as the command completes.
 
-Unlike a remote session, the web request session isn't a persistent connection. It's an object that
+Before PowerShell 7.4, the web request session isn't a persistent connection. It's an object that
 contains information about the connection and the request, including cookies, credentials, the
 maximum redirection value, and the user agent string. You can use it to share state and data among
 web requests.
+
+Starting in PowerShell 7.4, the web request session is persistent as long as the properties of the
+session aren't overridden in a subsequent request. When they are, the cmdlet recreates the session
+with the new values. The persistent sessions reduce the overhead for repeated requests, making them
+much faster.
 
 To use the web request session in subsequent web requests, specify the session variable in the value
 of the **WebSession** parameter. PowerShell uses the data in the web request session object when
@@ -1325,13 +1327,20 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Object
 
-You can pipe the body of a web request to `Invoke-WebRequest`.
+You can pipe the body of a web request to this cmdlet.
 
 ## OUTPUTS
 
 ### Microsoft.PowerShell.Commands.BasicHtmlWebResponseObject
 
+This cmdlet returns the response object representing the result of the web request.
+
 ## NOTES
+
+PowerShell includes the following aliases for `Invoke-WebRequest`:
+
+- All platforms:
+  - `iwr`
 
 Beginning with PowerShell 6.0.0 `Invoke-WebRequest` supports basic parsing only.
 

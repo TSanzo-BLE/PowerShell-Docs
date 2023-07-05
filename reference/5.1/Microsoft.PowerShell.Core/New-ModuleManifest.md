@@ -2,7 +2,7 @@
 external help file: System.Management.Automation.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Core
-ms.date: 10/19/2022
+ms.date: 12/09/2022
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/new-modulemanifest?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: New-ModuleManifest
@@ -57,7 +57,7 @@ aren't specified in the command, in addition to required parameter values. Begin
 
 If you are planning to publish your module in the PowerShell Gallery, the manifest must contain
 values for certain properties. For more information, see
-[Required metadata for items published to the PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package#required-metadata-for-items-published-to-the-powershell-gallery)
+[Required metadata for items published to the PowerShell Gallery](/powershell/gallery/how-to/publishing-packages/publishing-a-package#required-metadata-for-items-published-to-the-powershell-gallery)
 in the Gallery documentation.
 
 ## EXAMPLES
@@ -422,7 +422,7 @@ Accept wildcard characters: False
 ### -CompatiblePSEditions
 
 Specifies the module's compatible PSEditions. For information about PSEdition, see
-[Modules with compatible PowerShell Editions](/powershell/scripting/gallery/concepts/module-psedition-support).
+[Modules with compatible PowerShell Editions](/powershell/gallery/concepts/module-psedition-support).
 
 ```yaml
 Type: System.String[]
@@ -1116,14 +1116,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### None
 
-You can't pipe input to this cmdlet.
+You can't pipe objects to this cmdlet.
 
 ## OUTPUTS
 
-### None or System.String
+### None
 
-By default, `New-ModuleManifest` doesn't generate any output. However, if you use the **PassThru**
-parameter, it generates a **System.String** object representing the module manifest.
+By default, this cmdlet returns no output.
+
+### System.String
+
+When you use the **PassThru** parameter, this cmdlet returns a string representing the module
+manifest.
 
 ## NOTES
 

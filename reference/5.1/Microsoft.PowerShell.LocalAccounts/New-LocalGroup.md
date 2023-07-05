@@ -2,7 +2,7 @@
 external help file: Microsoft.Powershell.LocalAccounts.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.LocalAccounts
-ms.date: 09/28/2021
+ms.date: 06/28/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/new-localgroup?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: New-LocalGroup
@@ -107,7 +107,8 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
 -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose,
--WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+-WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -119,11 +120,15 @@ You can pipe a string to this cmdlet.
 
 ### System.Management.Automation.SecurityAccountsManager.LocalGroup
 
-This cmdlet returns a security group.
+This cmdlet returns a **LocalGroup** object representing the created security group.
 
 ## NOTES
 
-` The **PrincipalSource** property is a property on **LocalUser**, **LocalGroup**, and
+Windows PowerShell includes the following aliases for `New-LocalGroup`:
+
+- `nlg`
+
+The **PrincipalSource** property is a property on **LocalUser**, **LocalGroup**, and
 **LocalPrincipal** objects that describes the source of the object. The possible sources are as
 follows:
 

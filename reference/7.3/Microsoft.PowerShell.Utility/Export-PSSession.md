@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 08/18/2022
+ms.date: 12/12/2022
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/export-pssession?view=powershell-7.3&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Export-PSSession
@@ -422,7 +422,7 @@ Accept wildcard characters: False
 ### -OutputModule
 
 Specifies an optional path and name for the module created by `Export-PSSession`. The default path
-is `$home\Documents\WindowsPowerShell\Modules`. This parameter is required.
+is `$HOME\Documents\WindowsPowerShell\Modules`. This parameter is required.
 
 If the module subdirectory or any of the files that `Export-PSSession` creates already exist, the
 command fails. To overwrite existing files, use the **Force** parameter.
@@ -434,7 +434,7 @@ Aliases: PSPath, ModuleName
 
 Required: True
 Position: 1
-Default value: $home\Documents\WindowsPowerShell\Modules
+Default value: $HOME\Documents\WindowsPowerShell\Modules
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -468,13 +468,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### None
 
-You cannot pipe objects to `Export-PSSession`.
+You can't pipe objects to this cmdlet.
 
 ## OUTPUTS
 
 ### System.IO.FileInfo
 
-`Export-PSSession` returns a list of files that comprise the module that it created.
+This cmdlet returns a list of files that comprise the module that it created.
 
 ## NOTES
 

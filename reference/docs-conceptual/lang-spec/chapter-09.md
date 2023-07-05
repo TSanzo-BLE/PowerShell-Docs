@@ -1,6 +1,6 @@
 ---
 description: PowerShell supports arrays of one or more dimensions with each dimension having zero or more elements.
-ms.date: 05/19/2021
+ms.date: 12/09/2022
 title: Arrays
 ---
 # 9. Arrays
@@ -25,7 +25,7 @@ with each row having *N* columns, can be accessed using the expressions
 `B[0,0], B[0,1], ..., B[0,N-1], B[1,0], B[1,1], ..., B[1,N-1], ..., B[M-1,0], B[M-1,1], ..., B[M-1,N-1]`.
 And so on for arrays with three or more dimensions.
 
-By default, an array is *polymorphic*; i.e., its elements need not all have the same type. For
+By default, an array is *polymorphic*; i.e., its elements do not need to all have the same type. For
 example,
 
 ```powershell
@@ -244,16 +244,16 @@ multidimensional array, the elements are processed in row-major order. For examp
 ```powershell
 $a = 10, 53, 16, -43
 foreach ($elem in $a) {
-    # do something with element via $e
+    # do something with element via $elem
 }
 
 foreach ($elem in -5..5) {
-    # do something with element via $e
+    # do something with element via $elem
 }
 
 $a = New-Object 'int[,]' 3, 2
 foreach ($elem in $a) {
-    # do something with element via $e
+    # do something with element via $elem
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 description: >-
     This article describes the process for contributing quality improvements to the documentation.
-ms.date: 11/03/2022
+ms.date: 06/28/2023
 ms.topic: conceptual
 title: Contributing quality improvements
 ---
@@ -15,7 +15,7 @@ documentation.
 
 We're focusing on these quality areas:
 
-- [Aliases][04]
+<!-- - [Aliases][04] -->
 - [Formatting code samples][05]
 - [Formatting command syntax][06]
 - [Link References][07]
@@ -24,7 +24,7 @@ We're focusing on these quality areas:
 
 ## Project Tracking
 
-We're tracking contributions with the [PowerShell Docs Quality Contributions][23] Github Project.
+We're tracking contributions with the [PowerShell Docs Quality Contributions][23] GitHub Project.
 
 The project page has several views for the issues and PRs related to this effort:
 
@@ -42,7 +42,7 @@ The project page has several views for the issues and PRs related to this effort
 
 <!-- markdownlint-enable MD044 -->
 
-## Aliases
+<!-- ## Aliases
 
 We're working through documenting the aliases for every cmdlet.
 
@@ -79,7 +79,7 @@ For Windows PowerShell, use one of these formats instead:
    ```md
    Windows Powershell includes no aliases for `<Cmdlet-Name>`.
    ```
-
+-->
 ## Formatting code samples
 
 All code samples should follow the [style guidelines][03] for PowerShell content. Those rules are
@@ -209,7 +209,7 @@ steps:
 [01]: /powershell/scripting/community/contributing/overview#prepare-to-make-a-contribution
 [02]: /powershell/scripting/community/contributing/powershell-style-guide#formatting-command-syntax-elements
 [03]: /powershell/scripting/community/contributing/powershell-style-guide#markdown-for-code-samples
-[04]: #aliases
+<!-- [04]: #aliases -->
 [05]: #formatting-code-samples
 [06]: #formatting-command-syntax
 [07]: #link-references
@@ -218,16 +218,16 @@ steps:
 [10]: https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword
 [11]: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md022
 [12]: https://github.com/MicrosoftDocs/azure-docs-powershell
-[13]: https://github.com/MicrosoftDocs/azure-docs-powershell/issues/new?template=00-quality.yml&title=Quality%3A+
+[13]: https://github.com/MicrosoftDocs/azure-docs-powershell/issues/new?template=02-quality.yml&title=Quality%3A+
 [14]: https://github.com/MicrosoftDocs/PowerShell-Docs
 [15]: https://github.com/MicrosoftDocs/PowerShell-Docs-Dsc
-[16]: https://github.com/MicrosoftDocs/PowerShell-Docs-Dsc/issues/new?template=00-quality.yml&title=Quality%3A+
+[16]: https://github.com/MicrosoftDocs/PowerShell-Docs-Dsc/issues/new?template=02-quality.yml&title=Quality%3A+
 [17]: https://github.com/MicrosoftDocs/PowerShell-Docs-Modules
-[18]: https://github.com/MicrosoftDocs/PowerShell-Docs-Modules/issues/new?template=00-quality.yml&title=Quality%3A+
+[18]: https://github.com/MicrosoftDocs/PowerShell-Docs-Modules/issues/new?template=02-quality.yml&title=Quality%3A+
 [19]: https://github.com/MicrosoftDocs/PowerShell-Docs/issues/9257
-[20]: https://github.com/MicrosoftDocs/PowerShell-Docs/issues/new?template=00-quality.yml&title=Quality%3A+
+[20]: https://github.com/MicrosoftDocs/PowerShell-Docs/issues/new?template=02-quality.yml&title=Quality%3A+
 [21]: https://github.com/MicrosoftDocs/windows-powershell-docs
-[22]: https://github.com/MicrosoftDocs/windows-powershell-docs/issues/new?template=00-quality.yml&title=Quality%3A+
+[22]: https://github.com/MicrosoftDocs/windows-powershell-docs/issues/new?template=02-quality.yml&title=Quality%3A+
 [23]: https://github.com/orgs/MicrosoftDocs/projects/15
 [24]: https://github.com/orgs/MicrosoftDocs/projects/15/views/1
 [25]: https://github.com/orgs/MicrosoftDocs/projects/15/views/2

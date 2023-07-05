@@ -85,7 +85,7 @@ The rules for converting any value to type float or double are as
 follows:
 
 - The bool value False is converted to zero; the bool value True is converted to 1.
-- A char value is represented is represented exactly.
+- A char value is represented exactly.
 - A numeric type value is represented exactly, if possible; however, for int, long, and decimal
   conversions to float, and for long and decimal conversions to double, some of the least
   significant bits of the integer value may be lost.
@@ -256,9 +256,9 @@ For information about parameter binding see [§8.14][§8.14].
 When the value of an expression is being bound to a parameter, there are extra conversion
 considerations, as described below:
 
-- If the parameter type is bool or switch ([§4.2.5][§4.2.5], [§8.10.5][§8.10.5]) and the parameter has no
+- If the parameter type is switch ([§4.2.5][§4.2.5], [§8.10.5][§8.10.5]) and the parameter has no
   argument, the value of the parameter in the called command is set to `$true`. If the parameter
-  type is other than bool or switch, a parameter having no argument is in error.
+  type is other than switch, a parameter having no argument is in error.
 - If the parameter type is switch and the argument value is `$null`, the parameter value is set to
   `$false`.
 - If the parameter type is object or is the same as the type of the argument, the argument's value

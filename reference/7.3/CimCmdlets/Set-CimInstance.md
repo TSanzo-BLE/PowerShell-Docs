@@ -2,7 +2,7 @@
 external help file: Microsoft.Management.Infrastructure.CimCmdlets.dll-Help.xml
 Locale: en-US
 Module Name: CimCmdlets
-ms.date: 06/21/2021
+ms.date: 06/28/2023
 online version: https://learn.microsoft.com/powershell/module/cimcmdlets/set-ciminstance?view=powershell-7.3&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Set-CimInstance
@@ -405,11 +405,22 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
+### None
+
+By default, this cmdlet returns no output.
+
 ### Microsoft.Management.Infrastructure.CimInstance
 
-When the **Passthru** parameter is specified, this cmdlet returns a modified CIM instance object.
+When you use the **Passthru** parameter, this cmdlet returns the modified CIM instance object.
 
 ## NOTES
+
+PowerShell includes the following aliases for `Set-CimInstance`:
+
+- Windows:
+  - `scim`
+
+This cmdlet is only available on Windows platforms.
 
 ## RELATED LINKS
 
@@ -418,4 +429,3 @@ When the **Passthru** parameter is specified, this cmdlet returns a modified CIM
 [New-CimInstance](New-CimInstance.md)
 
 [Remove-CimInstance](remove-ciminstance.md)
-

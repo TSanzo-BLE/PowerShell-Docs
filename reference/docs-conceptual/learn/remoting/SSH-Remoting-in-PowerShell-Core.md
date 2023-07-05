@@ -1,6 +1,6 @@
 ---
 description: Explains how to set up the SSH protocol for PowerShell remoting.
-ms.date: 08/29/2022
+ms.date: 05/01/2023
 title: PowerShell Remoting Over SSH
 ---
 
@@ -83,7 +83,7 @@ remote computer. And, you must enable **password** or **key-based** authenticati
    ```
 
    > [!NOTE]
-   > Starting in PowerShell 7.3, you no longer need to use the `-nologo` parameter when running
+   > Starting in PowerShell 7.4, you no longer need to use the `-nologo` parameter when running
    > PowerShell in SSH server mode.
 
    > [!NOTE]
@@ -163,7 +163,7 @@ remote computer. And, you must enable **password** or **key-based** authenticati
    > depending on how you installed PowerShell.
 
    > [!NOTE]
-   > Starting in PowerShell 7.3, you no longer need to use the `-nologo` parameter when running
+   > Starting in PowerShell 7.4, you no longer need to use the `-nologo` parameter when running
    > PowerShell in SSH server mode.
 
 1. Restart the **ssh** service.
@@ -179,7 +179,8 @@ remote computer. And, you must enable **password** or **key-based** authenticati
 
    Make sure SSH Remoting is enabled by following these steps:
 
-   1. Open `System Preferences`.
+   1. Open `System Settings`.
+   1. Click on `General`
    1. Click on `Sharing`.
    1. Check `Remote Login` to set `Remote Login: On`.
    1. Allow access to the appropriate users.
@@ -209,7 +210,7 @@ remote computer. And, you must enable **password** or **key-based** authenticati
    > vary depending on how you installed PowerShell.
 
    > [!NOTE]
-   > Starting in PowerShell 7.3, you no longer need to use the `-nologo` parameter when running
+   > Starting in PowerShell 7.4, you no longer need to use the `-nologo` parameter when running
    > PowerShell in SSH server mode.
 
    Optionally, enable key authentication:
@@ -283,15 +284,15 @@ Linux TestUser-UbuntuVM1 4.2.0-42-generic 49~16.04.1-Ubuntu SMP Wed Jun 29 20:22
 ```
 
 ```powershell
-Invoke-Command $session -ScriptBlock { Get-Process powershell }
+Invoke-Command $session -ScriptBlock { Get-Process pwsh }
 ```
 
 ```Output
-Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName                    PSComputerName
--------  ------    -----      -----     ------     --  -- -----------                    --------------
-      0       0        0         19       3.23  10635 635 powershell                     UbuntuVM1
-      0       0        0         21       4.92  11033 017 powershell                     UbuntuVM1
-      0       0        0         20       3.07  11076 076 powershell                     UbuntuVM1
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName    PSComputerName
+-------  ------    -----      -----     ------     --  -- -----------    --------------
+      0       0        0         19       3.23  10635 635 pwsh           UbuntuVM1
+      0       0        0         21       4.92  11033 017 pwsh           UbuntuVM1
+      0       0        0         20       3.07  11076 076 pwsh           UbuntuVM1
 ```
 
 ### Linux to Windows

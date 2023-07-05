@@ -2,7 +2,7 @@
 external help file: System.Management.Automation.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Core
-ms.date: 10/26/2022
+ms.date: 01/21/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Invoke-Command
@@ -1380,13 +1380,24 @@ represent the input objects in the command.
 
 ## OUTPUTS
 
-### System.Management.Automation.PSRemotingJob, System.Management.Automation.Runspaces.PSSession, or the output of the invoked command
+### System.Management.Automation.PSRemotingJob
 
-This cmdlet returns a job object, if you use the **AsJob** parameter. If you specify the
-**InDisconnectedSession** parameter, `Invoke-Command` returns a **PSSession** object. Otherwise, it
-returns the output of the invoked command, which is the value of the **ScriptBlock** parameter.
+If you use the **AsJob** parameter, this cmdlet returns a job object.
+
+### System.Management.Automation.Runspaces.PSSession
+
+If you use the **InDisconnectedSession** parameter, this cmdlet returns a **PSSession** object.
+
+### System.Object
+
+By default, this cmdlet returns the output of the invoked command, which is the value of the
+**ScriptBlock** parameter.
 
 ## NOTES
+
+Windows PowerShell includes the following aliases for `Invoke-Command`:
+
+- `icm`
 
 On Windows Vista, and later versions of the Windows operating system, to use the **ComputerName**
 parameter of `Invoke-Command` to run a command on the local computer, you must run PowerShell using

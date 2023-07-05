@@ -2,7 +2,7 @@
 external help file: Microsoft.Management.Infrastructure.CimCmdlets.dll-Help.xml
 Locale: en-US
 Module Name: CimCmdlets
-ms.date: 01/21/2020
+ms.date: 06/28/2023
 online version: https://learn.microsoft.com/powershell/module/cimcmdlets/invoke-cimmethod?view=powershell-7.3&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Invoke-CimMethod
@@ -451,13 +451,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### CIM class
+### Microsoft.Management.Infrastructure.CimClass
 
-This cmdlet accepts a CIM class as an input object.
+You can pipe a CIM class to this cmdlet.
 
-### CIM instance
+### Microsoft.Management.Infrastructure.CimInstance
 
-This cmdlet accepts a CIM instance as an input object.
+You can pipe a CIM instance to this cmdlet.
 
 ## OUTPUTS
 
@@ -466,6 +466,13 @@ This cmdlet accepts a CIM instance as an input object.
 This cmdlet returns an object.
 
 ## NOTES
+
+PowerShell includes the following aliases for `Invoke-CimMethod`:
+
+- Windows:
+  - `icim`
+
+This cmdlet is only available on Windows platforms.
 
 ## RELATED LINKS
 
@@ -476,4 +483,3 @@ This cmdlet returns an object.
 [Get-CimSession](Get-CimSession.md)
 
 [New-CimSession](New-CimSession.md)
-

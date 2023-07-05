@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.ScheduledJob.dll-Help.xml
 Locale: en-US
 Module Name: PSScheduledJob
-ms.date: 10/05/2021
+ms.date: 12/13/2022
 online version: https://learn.microsoft.com/powershell/module/psscheduledjob/register-scheduledjob?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Register-ScheduledJob
@@ -84,13 +84,13 @@ This example creates a scheduled job on the local computer.
 
 ```powershell
 Register-ScheduledJob -Name "Archive-Scripts" -ScriptBlock {
-  Get-ChildItem $home\*.ps1 -Recurse |
+  Get-ChildItem $HOME\*.ps1 -Recurse |
     Copy-Item -Destination "\\Server\Share\PSScriptArchive"
 }
 ```
 
 `Register-ScheduledJob` uses the **Name** parameter to create the `Archive-Scripts` scheduled job.
-The **ScriptBlock** parameter runs `Get-ChildItem` that searches the `$home` directory recursively
+The **ScriptBlock** parameter runs `Get-ChildItem` that searches the `$HOME` directory recursively
 for `.ps1` files. The `Copy-Item` cmdlet copies the files to a directory specified by the
 **Destination** parameter.
 
@@ -359,7 +359,7 @@ Windows PowerShell deletes the results of the oldest job instance to make room f
 the newest job instance.
 
 The job execution history and job results are saved in the
-`$home\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\<JobName>\Output\<Timestamp>`
+`$HOME\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs\<JobName>\Output\<Timestamp>`
 directories on the computer on which the job is created. To see the execution history, use the
 `Get-Job` cmdlet. To get the job results, use the `Receive-Job` cmdlet.
 
@@ -581,16 +581,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### None
 
-You can't send input down the pipeline to this cmdlet.
+You can't pipe objects to this cmdlet.
 
 ## OUTPUTS
 
 ### Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition
 
+This cmdlet returns a **ScheduledJobDefinition** object representing the registered job.
+
 ## NOTES
 
 Each scheduled job is saved in a subdirectory of the
-`$home\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs` directory on the local computer.
+`$HOME\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs` directory on the local computer.
 The subdirectory is named for the scheduled job and contains an XML file for the scheduled job and
 records of its execution history. For more information about scheduled jobs on disk, see
 [about_Scheduled_Jobs_Advanced](./about/about_scheduled_jobs_advanced.md).

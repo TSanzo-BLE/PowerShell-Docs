@@ -86,6 +86,10 @@ items:
             href: learn/shell/using-aliases.md
           - name: Customizing your shell environment
             href: learn/shell/creating-profiles.md
+          - name: Using PSReadLine key handlers
+            href: learn/shell/using-keyhandlers.md
+          - name: Configuring a light colored theme
+            href: learn/shell/using-light-theme.md
       - name: Deep dives
         items:
           - name: Overview
@@ -126,19 +130,19 @@ items:
             href: samples/sample-scripts-for-administration.yml
           - name: Working with objects
             items:
-              - name: Viewing object structure - Get-Member
+              - name: Viewing object structure
                 href: samples/viewing-object-structure--get-member-.md
-              - name: Selecting parts of object - Select-Object
+              - name: Selecting parts of objects
                 href: samples/selecting-parts-of-objects--select-object-.md
-              - name: Removing objects from the pipeline - Where-Object
+              - name: Removing objects from the pipeline
                 href: samples/removing-objects-from-the-pipeline--where-object-.md
               - name: Sorting objects
                 href: samples/sorting-objects.md
-              - name: Creating .NET and COM objects - New-Object
+              - name: Creating .NET and COM objects
                 href: samples/creating-.net-and-com-objects--new-object-.md
               - name: Using static classes and methods
                 href: samples/using-static-classes-and-methods.md
-              - name: Getting WMI objects - Get-CimInstance
+              - name: Getting WMI objects
                 href: samples/getting-wmi-objects--get-ciminstance-.md
               - name: Manipulating items directly
                 href: samples/manipulating-items-directly.md
@@ -156,8 +160,6 @@ items:
                 href: samples/managing-processes-with-process-cmdlets.md
               - name: Managing services
                 href: samples/managing-services.md
-              - name: Managing PowerShell drives
-                href: samples/managing-windows-powershell-drives.md
               - name: Working with printers
                 href: samples/working-with-printers.md
               - name: Performing networking tasks
@@ -170,15 +172,17 @@ items:
             items:
               - name: Redirecting data with Out-* cmdlets
                 href: samples/redirecting-data-with-out---cmdlets.md
-              - name: Using format commands to change output view
+              - name: Using Format commands to change output view
                 href: samples/using-format-commands-to-change-output-view.md
           - name: Manage drives & files
             items:
               - name: Managing current location
                 href: samples/managing-current-location.md
+              - name: Managing PowerShell drives
+                href: samples/managing-windows-powershell-drives.md
               - name: Working with files and folders
                 href: samples/working-with-files-and-folders.md
-              - name: Working with files folders and registry keys
+              - name: Working with files, folders, and registry keys
                 href: samples/working-with-files-folders-and-registry-keys.md
               - name: Working with registry entries
                 href: samples/working-with-registry-entries.md
@@ -228,8 +232,12 @@ items:
             href: learn/remoting/ps-remoting-second-hop.md
           - name: PowerShell Remoting FAQ
             href: learn/remoting/powershell-remoting-faq.yml
-      - name: PowerShell security features
-        href: learn/security-features.md
+      - name: PowerShell security
+        items:
+          - name: PowerShell security features
+            href: learn/security-features.md
+          - name: Using Application Control
+            href: learn/application-control.md
       - name: Using Experimental Features
         href: learn/experimental-features.md
       - name: Compatibility aliases
@@ -245,12 +253,12 @@ items:
         href: whats-new/overview.yml
       - name: What's new in PowerShell 7.x
         items:
+          - name: What's new in PowerShell 7.4 (preview)
+            href: whats-new/what-s-new-in-powershell-74.md
           - name: What's new in PowerShell 7.3
             href: whats-new/what-s-new-in-powershell-73.md
           - name: What's new in PowerShell 7.2
             href: whats-new/what-s-new-in-powershell-72.md
-          - name: What's new in PowerShell 7.0
-            href: whats-new/what-s-new-in-powershell-70.md
       - name: Migrating from Windows PowerShell 5.1 to PowerShell 7
         href: whats-new/Migrating-from-Windows-PowerShell-51-to-PowerShell-7.md
       - name: Differences between Windows PowerShell 5.1 and PowerShell 7.x
@@ -393,7 +401,7 @@ items:
   - name: Desired State Configuration (DSC)
     href: dsc/overview.md
   - name: PowerShell Gallery
-    href: gallery/toc.yml
+    href: gallery/overview.md
   - name: Community
     items:
       - name: Community update
@@ -404,6 +412,8 @@ items:
         href: community/hall-of-fame.md
       - name: What's new in Docs
         items:
+          - name: 2023 Updates
+            href: community/2023-updates.md
           - name: 2022 Updates
             href: community/2022-updates.md
           - name: 2021 Updates
@@ -432,6 +442,10 @@ items:
             href: dev-cross-plat/performance/script-authoring-considerations.md
           - name: Module performance considerations
             href: dev-cross-plat/performance/module-authoring-considerations.md
+      - name: Security considerations
+        items:
+          - name: Preventing script injection attacks
+            href: dev-cross-plat/security/preventing-script-injection.md
       - name: Developing modern modules
         items:
           - name: Writing portable modules
@@ -488,12 +502,16 @@ items:
         href: community/contributing/overview.md
       - name: Get started writing docs
         href: community/contributing/get-started-writing.md
+      - name: Contribute using GitHub Codespaces
+        href: community/contributing/using-github-codespaces.md
       - name: Markdown best practices
         href: community/contributing/general-markdown.md
       - name: PowerShell-Docs style guide
         href: community/contributing/powershell-style-guide.md
       - name: Editorial checklist
         href: community/contributing/editorial-checklist.md
+      - name: Product terminology and branding guidelines
+        href: community/contributing/product-terminology.md
       - name: How to file a Docs issue
         href: community/contributing/file-an-issue.md
       - name: Submitting a pull request

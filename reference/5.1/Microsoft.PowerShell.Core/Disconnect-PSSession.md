@@ -2,7 +2,7 @@
 external help file: System.Management.Automation.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Core
-ms.date: 05/18/2022
+ms.date: 12/09/2022
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/disconnect-pssession?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Disconnect-PSSession
@@ -141,8 +141,8 @@ Id Name            ComputerName    State         ConfigurationName     Availabil
  1 ITTask          Srv1            Disconnected  Microsoft.PowerShell          None
 
 PS> $s = Connect-PSSession -ComputerName Srv1 -Name ITTask -Credential Domain01\User01
-PS> Invoke-Command -Session $s {dir $home\Scripts\PatchStatusOutput.ps1}
-PS> Invoke-Command -Session $s {mkdir $home\Scripts\PatchStatusOutput}
+PS> Invoke-Command -Session $s {dir $HOME\Scripts\PatchStatusOutput.ps1}
+PS> Invoke-Command -Session $s {mkdir $HOME\Scripts\PatchStatusOutput}
 PS> Invoke-Command -Session $s -FilePath \\Server01\Scripts\Get-PatchStatus.ps1
 PS> Disconnect-PSSession -Session $s
 ```
@@ -527,15 +527,19 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Management.Automation.Runspaces.PSSession
 
-You can pipe a session to `Disconnect-PSSession`.
+You can pipe a session to this cmdlet.
 
 ## OUTPUTS
 
 ### System.Management.Automation.Runspaces.PSSession
 
-`Disconnect-PSSession` returns an object that represents the session that it disconnected.
+This cmdlet returns an object representing the session that it disconnected.
 
 ## NOTES
+
+Windows PowerShell includes the following aliases for `Disconnect-PSSession`:
+
+- `dnsn`
 
 - The `Disconnect-PSSession` cmdlet works only when the local and remote computers are running
   PowerShell 3.0 or later.

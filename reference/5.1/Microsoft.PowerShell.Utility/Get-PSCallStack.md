@@ -2,11 +2,12 @@
 external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 10/04/2021
+ms.date: 06/28/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/get-pscallstack?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Get-PSCallStack
 ---
+
 # Get-PSCallStack
 
 ## SYNOPSIS
@@ -95,15 +96,19 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### None
 
-You cannot pipe objects to this cmdlet.
+You can't pipe objects to this cmdlet.
 
 ## OUTPUTS
 
 ### System.Management.Automation.CallStackFrame
 
-`Get-PSCallStack` returns an object that represents the items in the call stack.
+This cmdlet returns an object representing the items in the call stack.
 
 ## NOTES
+
+Windows PowerShell includes the following aliases for `Get-PSCallStack`:
+
+- `gcs`
 
 ## RELATED LINKS
 

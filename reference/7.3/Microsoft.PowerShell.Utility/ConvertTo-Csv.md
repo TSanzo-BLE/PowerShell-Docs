@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 10/26/2022
+ms.date: 03/14/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/convertto-csv?view=powershell-7.3&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: ConvertTo-Csv
@@ -144,7 +144,7 @@ $person1 = @{
 
 $person2 = @{
     Name = 'Jane Smith'
-    Number = 1
+    Number = 2
 }
 
 $allPeople = $person1, $person2
@@ -202,8 +202,8 @@ Accept wildcard characters: False
 
 ### -IncludeTypeInformation
 
-When this parameter is used the first line of the output contains **#TYPE** followed by the fully
-qualified name of the object type. For example, **#TYPE System.Diagnostics.Process**.
+When this parameter is used the first line of the output contains `#TYPE` followed by the fully
+qualified name of the object type. For example, `#TYPE System.Diagnostics.Process`.
 
 This parameter was introduced in PowerShell 6.0.
 
@@ -214,7 +214,7 @@ Aliases: ITI
 
 Required: False
 Position: Named
-Default value: #TYPE <Object>
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -238,7 +238,7 @@ Accept wildcard characters: False
 
 ### -NoTypeInformation
 
-Removes the **#TYPE** information header from the output. This parameter became the default in
+Removes the `#TYPE` information header from the output. This parameter became the default in
 PowerShell 6.0 and is included for backwards compatibility.
 
 ```yaml
@@ -248,7 +248,7 @@ Aliases: NTI
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -282,7 +282,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -321,13 +321,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Management.Automation.PSObject
 
-You can pipe any object that has an Extended Type System (ETS) adapter to `ConvertTo-CSV`.
+You can pipe any object that has an Extended Type System (ETS) adapter to this cmdlet.
 
 ## OUTPUTS
 
 ### System.String
 
-The CSV output is returned as a collection of strings.
+This cmdlet returns one or more strings representing each converted object.
 
 ## NOTES
 

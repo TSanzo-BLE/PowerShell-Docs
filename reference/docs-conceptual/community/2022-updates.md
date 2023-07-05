@@ -1,15 +1,92 @@
 ---
 description: List of changes to the PowerShell documentation for 2022
-ms.date: 11/01/2022
+ms.date: 06/28/2023
 title: What's New in PowerShell-Docs for 2022
 ---
 # What's new in PowerShell Docs for 2022
 
-This article lists some of the major changes to docs during this previous month and celebrates the
-contributions from the community.
+This article lists notable changes made to docs each month and celebrates the contributions from the
+community.
 
 Help us make the documentation better for you. Read the [Contributor's Guide][contrib] to learn how
 to get started.
+
+## 2022-December
+
+New Content
+
+- [about_PSItem](/powershell/module/microsoft.powershell.core/about/about_psitem)
+- [Configuring a light colored theme](/powershell/scripting/learn/shell/using-light-theme)
+- [What's new in Crescendo 1.1](/powershell/utility-modules/crescendo/whats-new/whats-new-in-crescendo-11)
+- [Export-CrescendoCommand](/powershell/module/microsoft.powershell.crescendo/export-crescendocommand)
+- PowerShell 7.4 (preview) cmdlet reference - a direct copy of the 7.3 content in preparation for
+  the preview release of PowerShell 7.4
+
+More Quality project updates
+
+- Added alias information to 83 cmdlet articles (Thanks @ehmiiz!)
+- Added alias information to 8 cmdlet articles (Thanks @szabolevo!)
+
+GitHub stats
+
+- 51 PRs merged (14 from Community)
+- 50 issues opened (28 from Community)
+- 46 issues closed (23 Community issues closed)
+
+The following people have contributed to PowerShell docs by submitting pull requests or filing
+issues. Thank you!
+
+|  GitHub Id  | PRs merged | Issues opened |
+| ----------- | :--------: | :-----------: |
+| ehmiiz      |     8      |       7       |
+| changeworld |     3      |               |
+| szabolevo   |     1      |               |
+| amkhrjee    |     1      |               |
+| xtqqczze    |     1      |       3       |
+| ALiwoto     |     1      |       2       |
+| mklement0   |            |       3       |
+
+## 2022-November
+
+New Content
+
+- [Contributing quality improvements](contributing/quality-improvements.md)
+  - See examples under [Quality project updates](#quality-nov)
+- [Product terminology and branding guidelines](contributing/product-terminology.md)
+- [Labelling in GitHub](contributing/labelling-in-github.md)
+
+Content updates
+
+- Updated release notes for the PowerShell 7.3 GA release
+- Updated [about_Telemetry](/powershell/module/microsoft.powershell.core/about/about_telemetry)
+- Improved the description of delay-binding in
+  [about_Script_Blocks](/powershell/module/Microsoft.PowerShell.Core/About/about_Script_Blocks)
+- Added a best practice recommendation to
+  [about_Functions_Advanced_Parameters](/powershell/module/Microsoft.PowerShell.Core/About/about_Functions_Advanced_Parameters)
+
+<span id='quality-nov'>Quality project updates</span>
+
+- Added alias information to 129 cmdlet articles (Thanks @ehmiiz!)
+- Added links to PRs in the PowerShell 7.3 release notes (Thanks @skycommand!)
+- Converted hyperlinks to link references in 5 articles (Thanks @chadmando!)
+
+GitHub stats
+
+- 52 PRs merged (12 from Community)
+- 41 issues opened (27 from Community)
+- 42 issues closed (28 Community issues closed)
+
+The following people have contributed to PowerShell docs by submitting pull requests or filing
+issues. Thank you!
+
+|   GitHub Id    | PRs merged | Issues opened |
+| -------------- | :--------: | :-----------: |
+| ehmiiz         |     9      |       8       |
+| chadmando      |     1      |               |
+| baardhermansen |     1      |               |
+| skycommand     |     1      |               |
+| mklement0      |            |       3       |
+| peetrike       |            |       2       |
 
 ## 2022-October
 
@@ -274,9 +351,9 @@ New content
 
 Content updates
 
-- Rewrote the install instructions for [PowerShellGet](/powershell/scripting/gallery/installing-psget)
+- Rewrote the install instructions for [PowerShellGet](/powershell/gallery/powershellget/install-powershellget)
 - Created separate article for
-  [Installing PowerShellGet on older Windows systems](/powershell/scripting/gallery/install-on-older-systems)
+  [Installing PowerShellGet on older Windows systems](/powershell/gallery/powershellget/install-on-older-systems)
 
 Other projects
 

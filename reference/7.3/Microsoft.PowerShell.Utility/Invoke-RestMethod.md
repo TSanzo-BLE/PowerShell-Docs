@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 11/04/2022
+ms.date: 03/16/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.3&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Invoke-RestMethod
@@ -632,10 +632,7 @@ Accept wildcard characters: False
 
 Specifies the headers of the web request. Enter a hash table or dictionary.
 
-To set UserAgent headers, use the **UserAgent** parameter. You cannot use this parameter to specify
-`User-Agent` or cookie headers.
-
-Content related headers, such as `Content-Type` will be overridden when a `MultipartFormDataContent`
+Content related headers, such as `Content-Type` are overridden when a `MultipartFormDataContent`
 object is supplied for **Body**.
 
 ```yaml
@@ -730,8 +727,8 @@ Accept wildcard characters: False
 ### -MaximumRetryCount
 
 Specifies how many times PowerShell retries a connection when a failure code between 400 and 599,
-inclusive or 304 is received. Also see **RetryIntervalSec** parameter for specifying number of
-retries.
+inclusive or 304 is received. Also, see the **RetryIntervalSec** parameter for specifying the number
+of seconds between retries.
 
 ```yaml
 Type: System.Int32
@@ -984,8 +981,9 @@ Accept wildcard characters: False
 ### -RetryIntervalSec
 
 Specifies the interval between retries for the connection when a failure code between 400 and 599,
-inclusive or 304 is received. Also see **MaximumRetryCount** parameter for specifying number of
-retries. The value must be between `1` and `[int]::MaxValue`.
+inclusive or 304 is received. The value must be between `1` and `[int]::MaxValue`.
+
+Also, see the **MaximumRetryCount** parameter for specifying number of retries.
 
 ```yaml
 Type: System.Int32
@@ -1008,10 +1006,15 @@ When you specify a session variable, `Invoke-RestMethod` creates a web request s
 assigns it to a variable with the specified name in your PowerShell session. You can use the
 variable in your session as soon as the command completes.
 
-Unlike a remote session, the web request session isn't a persistent connection. It's an object that
+Before PowerShell 7.4, the web request session isn't a persistent connection. It's an object that
 contains information about the connection and the request, including cookies, credentials, the
 maximum redirection value, and the user agent string. You can use it to share state and data among
 web requests.
+
+Starting in PowerShell 7.4, the web request session is persistent as long as the properties of the
+session aren't overridden in a subsequent request. When they are, the cmdlet recreates the session
+with the new values. The persistent sessions reduce the overhead for repeated requests, making them
+much faster.
 
 To use the web request session in subsequent web requests, specify the session variable in the value
 of the **WebSession** parameter. PowerShell uses the data in the web request session object when
@@ -1350,20 +1353,32 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Object
 
-You can pipe the body of a web request to `Invoke-RestMethod`.
+You can pipe the body of a web request to this cmdlet.
 
 ## OUTPUTS
 
-### System.Int64, System.String, System.Xml.XmlDocument
+### System.Int64
 
-The output of the cmdlet depends upon the format of the content that is retrieved.
+When the request returns an integer, this cmdlet returns that integer.
+
+### System.String
+
+When the request returns a string, this cmdlet returns that string.
+
+### System.Xml.XmlDocument
+
+When the request returns valid XML, this cmdlet returns it as an **XmlDocument**.
 
 ### PSObject
 
-If the request returns JSON strings, `Invoke-RestMethod` returns a **PSObject** that represents the
-strings.
+When the request returns JSON strings, this cmdlet returns a **PSObject** representing the data.
 
 ## NOTES
+
+PowerShell includes the following aliases for `Invoke-RestMethod`:
+
+- All platforms:
+  - `irm`
 
 Some features may not be available on all platforms.
 

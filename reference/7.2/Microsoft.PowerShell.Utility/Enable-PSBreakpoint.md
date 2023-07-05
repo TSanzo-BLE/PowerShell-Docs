@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 11/06/2022
+ms.date: 01/20/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/enable-psbreakpoint?view=powershell-7.2&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Enable-PSBreakpoint
@@ -115,6 +115,25 @@ Enable-PSBreakpoint -Breakpoint $B
 
 This example is equivalent to running `Enable-PSBreakpoint -Id 3, 5`.
 
+### Example 5: Enable a breakpoint in a runspace
+
+In this example, a job is started with a breakpoint is set to break then disabled. The runspace is
+stored in a variable and passed to the `Get-PSBreakPoint` command with the **Runspace** parameter.
+The output of `Get-PSBreakPoint` is piped to `Enable-PSBreakpoint` to enable the breakpoint in the
+runspace.
+
+```powershell
+Start-Job -ScriptBlock {
+    $bp = Set-PSBreakpoint -Command Start-Sleep
+    Disable-PSBreakpoint $bp
+    Start-Sleep -Seconds 10
+}
+
+$runspace = Get-Runspace -Id 1
+
+Get-PSBreakPoint -Runspace $runspace | Enable-Breakpoint -Runspace $runspace
+```
+
 ## PARAMETERS
 
 ### -Breakpoint
@@ -175,6 +194,8 @@ Accept wildcard characters: False
 Specifies the Id of a **Runspace** object so you can interact with breakpoints in the specified
 runspace.
 
+This parameter was added in PowerShell 7.2.
+
 ```yaml
 Type: Runspace
 Parameter Sets: Id
@@ -230,14 +251,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Management.Automation.Breakpoint
 
-You can pipe a breakpoint object to `Enable-PSBreakpoint`.
+You can pipe a breakpoint object to this cmdlet.
 
 ## OUTPUTS
 
-### None or System.Management.Automation.Breakpoint
+### None
 
-When you use the **PassThru** parameter, `Enable-PSBreakpoint` returns a breakpoint object that
-represents that breakpoint that was enabled. Otherwise, this cmdlet doesn't generate any output.
+By default, this cmdlet returns no output.
+
+### System.Management.Automation.Breakpoint
+
+When you use the **PassThru** parameter, this cmdlet returns a breakpoint object representing the
+enabled breakpoint.
 
 ## NOTES
 
